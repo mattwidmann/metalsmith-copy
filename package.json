@@ -1,0 +1,20 @@
+{
+  "name": "metalsmith-copy",
+  "version": "0.1.0",
+  "description": "Metalsmith plugin for copying files with different names",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --slow 300"
+  },
+  "author": "Matt Widmann",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^0.8.1",
+    "minimatch": "^0.2.14"
+  },
+  "devDependencies": {
+    "assert-dir-equal": "^1.0.1",
+    "metalsmith": "^0.7.0",
+    "mocha": "^1.18.2"
+  }
+}

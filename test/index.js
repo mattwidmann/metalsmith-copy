@@ -38,6 +38,21 @@ describe('metalsmith-copy', function() {
       });
   });
 
+  it('should move if options.move is true', function(done) {
+
+    copy_test({
+      pattern: '*.md',
+      directory: 'out',
+      move: true
+    }, function(err, files) {
+      if (err) return done(err);
+      assert(files['out/index.md'], 'file was copied');
+      assert(!files['index.md'], 'original was removed');
+      done();
+    });
+
+  });
+
   it('should copy and change both the directory and extension', function(done) {
     copy_test({
         pattern: '*.md',

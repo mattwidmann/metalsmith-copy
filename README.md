@@ -43,6 +43,7 @@ metalsmith-copy requires a `pattern` option as well as at least one of the trans
 - `extension` is an extension (starting with `.`) that replaces the file's current last extension.
 - `directory` is a directory relative to the build directory for the new file to be copied.
 - `transform` supercedes both `extension` and `directory` and is a function which takes one argument (the path to the file being copied) and returns a new path for the file to be copied to.
+- `move` is boolean value indication files should be moved instead of copied.
 
 ## Use Cases
 
@@ -55,12 +56,14 @@ If you're running a blog, perhaps you want to mimic John Gruber's articles, wher
 }
 ```
 
-To copy all files in a given folder to the root of your build directory, you could try the following options:
+To move all files in a given folder to the root of your build directory, you could try the following options:
 
 ```json
 {
   "pattern": "static/*",
-  "directory": ""
+  "directory": "",
+  "move": true
+
 }
 ```
 

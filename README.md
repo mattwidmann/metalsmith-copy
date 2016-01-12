@@ -1,5 +1,10 @@
 # metalsmith-copy
 
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Dependency Status][david-badge]][david-url]
+[![Slack chat][slack-badge]][slack-url]
+
 This is a plugin for [Metalsmith][] that copies files matching a `pattern` based on either a `transform` function or a `directory` and `extension`.  Think of metalsmith-copy as a file converter plugin like metalsmith-markdown, but it doesn't make any changes to the content and name changes are programmatically specified in its options.
 
 [metalsmith]: http://metalsmith.io
@@ -67,3 +72,11 @@ To move all files in a given folder to the root of your build directory, you cou
 }
 ```
 
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-copy.svg
+[npm-url]: https://www.npmjs.com/package/metalsmith-copy
+[travis-badge]: https://travis-ci.org/mattwidmann/metalsmith-copy.svg
+[travis-url]: https://travis-ci.org/mattwidmann/metalsmith-copy
+[david-badge]: https://david-dm.org/mattwidmann/metalsmith-copy.svg
+[david-url]: https://david-dm.org/mattwidmann/metalsmith-copy
+[slack-badge]: https://img.shields.io/badge/Slack-Join%20Chat%20→-blue.svg
+[slack-url]: http://metalsmith-slack.herokuapp.com/

@@ -24,14 +24,16 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "debug": "^0.8.1",
-    "lodash": "^2.4.1",
-    "minimatch": "^0.2.14"
+    "debug": "^2.2.0",
+    "lodash": "^3.10.1",
+    "minimatch": "^3.0.0"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
-    "metalsmith": "^0.7.0",
-    "metalsmith-collections": "^0.4.0",
-    "mocha": "^1.18.2"
+    "brace-expansion": "^1.1.2",
+    "concat-map": "0.0.1",
+    "metalsmith": "^1.7.0",
+    "metalsmith-collections": "^0.7.0",
+    "mocha": "^2.3.4"
   }
 }

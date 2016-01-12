@@ -20,6 +20,9 @@
     "email": "mattwdmn@gmail.com"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "dependencies": {
     "debug": "^0.8.1",
     "lodash": "^2.4.1",

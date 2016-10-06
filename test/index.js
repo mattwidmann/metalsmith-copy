@@ -90,7 +90,7 @@ describe('metalsmith-copy', function() {
   });
 
   describe('error handling', function() {
-    it('should not overwrite files that already exist', function(done) {
+    it('should not overwrite files that already exist by default', function(done) {
       copy_test({
           pattern: '*.md',
           extension: '.md'
@@ -99,6 +99,18 @@ describe('metalsmith-copy', function() {
           done(new Error('overwrote file'));
         });
     });
+
+    it('should overwrite files that already exist if option is passed', function(done) {
+      copy_test({
+          pattern: '*.md',
+          extension: '.md',
+          force: true
+        }, function(err, files) {
+          if (!err) return done();
+          else done(new Error('did not overwrite file'));
+        });
+    });
+
 
     it('should fail if no valid options are specified', function(done) {
       copy_test({

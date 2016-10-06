@@ -44,6 +44,7 @@ metalsmith-copy requires a `pattern` option as well as at least one of the trans
 - `directory` is a directory relative to the build directory for the new file to be copied.
 - `transform` supercedes both `extension` and `directory` and is a function which takes one argument (the path to the file being copied) and returns a new path for the file to be copied to.
 - `move` is boolean value indication files should be moved instead of copied.
+- `force` is a boolean value that defaults to false, but you can pass in true to force overwriting of destination files
 
 ## Use Cases
 

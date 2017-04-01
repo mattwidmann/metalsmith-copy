@@ -31,7 +31,7 @@ require('metalsmith')(__dirname)
     transform: function (file) {
       return file + '.bak';
     }
-  })
+  }))
   .build();
 ```
 

@@ -122,6 +122,16 @@ describe('metalsmith-copy', function() {
     });
 
       // if the copy was shallow, collections would mark the file with extension .md as part of the articles collection and that value would be shared to the copy, the file with extension .text, so make sure that the collection only contains 1 file if collections executes after the copy
+    it('should succeed with falsy required options', function(done) {
+      copy_test({
+          pattern: '*.md',
+          directory: ''
+        }, function(err) {
+          assert(!err, 'failed when valid options were specified');
+          done();
+        });
+    });
+
     it('should do a deep copy of the file', function(done) {
       var m = metalsmith('test/fixtures/simple');
 

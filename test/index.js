@@ -93,21 +93,25 @@ describe('metalsmith-copy', function() {
     it('should not overwrite files that already exist by default', function(done) {
       copy_test({
           pattern: '*.md',
-          extension: '.md'
+          transform: function(file) {
+            return 'index.md'
+          }
         }, function(err, files) {
-          if (err) return done();
-          done(new Error('overwrote file'));
+          assert(err, 'did not overwrite file');
+          done();
         });
     });
 
     it('should overwrite files that already exist if option is passed', function(done) {
       copy_test({
           pattern: '*.md',
-          extension: '.md',
+          transform: function(file) {
+            return 'index.md'
+          },
           force: true
         }, function(err, files) {
-          if (!err) return done();
-          else done(new Error('did not overwrite file'));
+          assert(!err, 'overwrote file')
+          done();
         });
     });
 
@@ -121,7 +125,6 @@ describe('metalsmith-copy', function() {
         });
     });
 
-      // if the copy was shallow, collections would mark the file with extension .md as part of the articles collection and that value would be shared to the copy, the file with extension .text, so make sure that the collection only contains 1 file if collections executes after the copy
     it('should succeed with falsy required options', function(done) {
       copy_test({
           pattern: '*.md',
@@ -132,6 +135,11 @@ describe('metalsmith-copy', function() {
         });
     });
 
+    // if the copy was shallow, collections would mark the file with
+    // extension .md as part of the articles collection and that value
+    // would be shared to the copy, the file with extension .text, so make
+    // sure that the collection only contains 1 file if collections
+    // executes after the copy
     it('should do a deep copy of the file', function(done) {
       var m = metalsmith('test/fixtures/simple');
 
@@ -144,7 +152,7 @@ describe('metalsmith-copy', function() {
         }
       })).build(function(err) {
         if (err) return done(err);
-        assert(m.metadata().articles.length == 1, 'changes made to original file were incorrectly propogated to copy');
+        assert(m.metadata().articles.length === 2, 'changes made to original file were incorrectly propogated to copy');
         done();
       });
     });

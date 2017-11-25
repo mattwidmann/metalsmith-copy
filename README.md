@@ -65,6 +65,9 @@ transformation options: `extension`, `directory`, or `transform`.
 - `force` is a boolean value that will force overwriting destination files.  By
   default, this is false and overwrites will generate errors.
 
+- `ignore` is a globbing pattern that ignores files, overriding a match with
+  `pattern`.
+
 ## Use Cases
 
 If you're running a blog, perhaps you want to mimic John Gruber's articles,

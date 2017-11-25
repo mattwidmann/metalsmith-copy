@@ -39,7 +39,6 @@ describe('metalsmith-copy', function() {
   });
 
   it('should move if options.move is true', function(done) {
-
     copy_test({
       pattern: '*.md',
       directory: 'out',
@@ -89,6 +88,19 @@ describe('metalsmith-copy', function() {
       });
   });
 
+  it('should not copy ignored files', function(done) {
+    copy_test({
+        pattern: '*.md',
+        extension: '.text',
+        ignore: 'other.md'
+      }, function(err, files) {
+        if (err) return done(err);
+        assert(!files['other.text'], 'ignored file was not copied');
+        assert(files['other.md'], 'ignored file was left alone');
+        done();
+      });
+  });
+
   describe('error handling', function() {
     it('should not overwrite files that already exist by default', function(done) {
       copy_test({
@@ -115,7 +127,6 @@ describe('metalsmith-copy', function() {
         });
     });
 
-
     it('should fail if no valid options are specified', function(done) {
       copy_test({
           pattern: '*.md'
@@ -135,11 +146,11 @@ describe('metalsmith-copy', function() {
         });
     });
 
-    // if the copy was shallow, collections would mark the file with
+    // If the copy was shallow, collections would mark the file with
     // extension .md as part of the articles collection and that value
     // would be shared to the copy, the file with extension .text, so make
     // sure that the collection only contains 1 file if collections
-    // executes after the copy
+    // executes after the copy.
     it('should do a deep copy of the file', function(done) {
       var m = metalsmith('test/fixtures/simple');
 

@@ -62,8 +62,8 @@ transformation options: `extension`, `directory`, or `transform`.
 
 - `move` is boolean value indicating files should be *moved* instead of copied.
 
-- `force` is a boolean value that defaults to false, but you can pass in true
-  to force overwriting of destination files
+- `force` is a boolean value that will force overwriting destination files.  By
+  default, this is false and overwrites will generate errors.
 
 ## Use Cases
 

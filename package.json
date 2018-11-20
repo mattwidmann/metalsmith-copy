@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-copy",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Metalsmith plugin for copying files with different names",
   "readmeFilename": "README.md",
   "bugs": {
